@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:swipe_stack/swipe_stack.dart';
 
 import 'swipe_animation/index.dart';
 

@@ -4,9 +4,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
-import 'activeCard.dart';
+import 'active_card.dart';
 import 'data.dart';
-import 'dummyCard.dart';
+import 'dummy_card.dart';
 
 class CardDemo extends StatefulWidget {
   @override
@@ -21,8 +21,8 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
   Animation<double> width;
   int flag = 0;
 
-  List data = imageData;
-  List selectedData = [];
+  List<dynamic> data = imageData;
+  List<dynamic> selectedData = [];
 
   @override
   void initState() {
@@ -43,7 +43,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
     rotate.addListener(() {
       setState(() {
         if (rotate.isCompleted) {
-          var i = data.removeLast();
+          final i = data.removeLast();
           data.insert(0, i);
 
           _buttonController.reset();
@@ -92,32 +92,34 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
     } on TickerCanceled {}
   }
 
-  dismissImg(DecorationImage img) {
+  void dismissImg(DecorationImage img) {
     setState(() {
       data.remove(img);
     });
   }
 
-  addImg(DecorationImage img) {
+  void addImg(DecorationImage img) {
     setState(() {
       data.remove(img);
       selectedData.add(img);
     });
   }
 
-  swipeRight() {
-    if (flag == 0)
+  void swipeRight() {
+    if (flag == 0) {
       setState(() {
         flag = 1;
       });
+    }
     _swipeAnimation();
   }
 
-  swipeLeft() {
-    if (flag == 1)
+  void swipeLeft() {
+    if (flag == 1) {
       setState(() {
         flag = 0;
       });
+    }
     _swipeAnimation();
   }
 
@@ -125,8 +127,8 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     timeDilation = 0.4;
 
-    double initialBottom = 15;
-    var dataLength = data.length;
+    const double initialBottom = 15;
+    final dataLength = data.length;
     double backCardPosition = initialBottom + (dataLength - 1) * 10 + 10;
     double backCardWidth = -10;
     return Container(
@@ -159,7 +161,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
                       backCardWidth, 0, 0, context);
                 }
               }).toList())
-          : Text("No Event Left",
+          : const Text('No Event Left',
               style: TextStyle(color: Colors.white, fontSize: 50)),
     );
   }

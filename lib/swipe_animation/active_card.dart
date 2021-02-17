@@ -18,7 +18,7 @@ Positioned cardDemo(
     Function addImg,
     Function swipeRight,
     Function swipeLeft) {
-  Size screenSize = MediaQuery.of(context).size;
+  final Size screenSize = MediaQuery.of(context).size;
   // print("Card");
   return Positioned(
     bottom: 100.0 + bottom,
@@ -67,7 +67,7 @@ Positioned cardDemo(
                 //     context,
                 //     new MaterialPageRoute(
                 //         builder: (context) => new DetailPage(type: img)));
-                Navigator.of(context).push(PageRouteBuilder(
+                Navigator.of(context).push(PageRouteBuilder<dynamic>(
                   pageBuilder: (_, __, ___) => DetailPage(type: img),
                 ));
               },
@@ -88,7 +88,7 @@ Positioned cardDemo(
                         width: screenSize.width / 1.2 + cardWidth,
                         height: screenSize.height / 2.2,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(8),
                               topRight: Radius.circular(8)),
                           image: img,
@@ -102,8 +102,7 @@ Positioned cardDemo(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              FlatButton(
-                                  padding: EdgeInsets.all(0),
+                              OutlinedButton(
                                   onPressed: () {
                                     swipeLeft();
                                   },
@@ -115,13 +114,12 @@ Positioned cardDemo(
                                       color: Colors.red,
                                       borderRadius: BorderRadius.circular(60),
                                     ),
-                                    child: Text(
+                                    child: const Text(
                                       "DON'T",
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   )),
-                              FlatButton(
-                                  padding: EdgeInsets.all(0),
+                              OutlinedButton(
                                   onPressed: () {
                                     swipeRight();
                                   },
@@ -133,7 +131,7 @@ Positioned cardDemo(
                                       color: Colors.cyan,
                                       borderRadius: BorderRadius.circular(60),
                                     ),
-                                    child: Text(
+                                    child: const Text(
                                       "I'M IN",
                                       style: TextStyle(color: Colors.white),
                                     ),
