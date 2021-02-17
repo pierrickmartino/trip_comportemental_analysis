@@ -11,7 +11,7 @@ Positioned cardDemoDummy(
     BuildContext context) {
   final Size screenSize = MediaQuery.of(context).size;
   // Size screenSize=(500,200);
-  // print("dummyCard");
+  //print('dummyCard');
   return Positioned(
     bottom: 100 + bottom,
     // right: flag == 0 ? right != 0 ? right : null : null,
@@ -46,35 +46,25 @@ Positioned cardDemoDummy(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     OutlinedButton(
-                        onPressed: () {},
-                        child: Container(
-                          height: 60,
-                          width: 130,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(60),
-                          ),
-                          child: const Text(
-                            "DON'T",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        )),
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          "DON'T",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
                     OutlinedButton(
-                        onPressed: () {},
-                        child: Container(
-                          height: 60,
-                          width: 130,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.cyan,
-                            borderRadius: BorderRadius.circular(60),
-                          ),
-                          child: const Text(
-                            "I'M IN",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ))
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          "I'M IN",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )
                   ],
                 ))
           ],

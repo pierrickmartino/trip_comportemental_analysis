@@ -131,8 +131,10 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
     final dataLength = data.length;
     double backCardPosition = initialBottom + (dataLength - 1) * 10 + 10;
     double backCardWidth = -10;
+
+    //print(dataLength.toString());
+
     return Container(
-      color: const Color.fromRGBO(106, 94, 175, 1),
       alignment: Alignment.center,
       child: dataLength > 0
           ? Stack(
@@ -161,7 +163,7 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
                       backCardWidth, 0, 0, context);
                 }
               }).toList())
-          : const Text('No Event Left',
+          : const Text('The end..',
               style: TextStyle(color: Colors.white, fontSize: 50)),
     );
   }
